@@ -1,5 +1,7 @@
 package configs
 
+import "strconv"
+
 type Config struct {
 	redisConfig    *RedisConfig
 	loggerConfig   *LoggerConfig
@@ -69,5 +71,5 @@ func (config *Config) LoggerConfig() LoggerConfig {
 }
 
 func (redisConfig *RedisConfig) Address() string {
-	return redisConfig.Host + ":" + string(redisConfig.Port)
+	return redisConfig.Host + ":" + strconv.Itoa(redisConfig.Port)
 }
